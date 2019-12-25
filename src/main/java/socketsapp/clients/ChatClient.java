@@ -2,7 +2,6 @@ package socketsapp.clients;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sem.frames.GameFrame;
 import org.postgresql.util.ReaderInputStream;
 import socketsapp.models.User;
 
@@ -40,7 +39,6 @@ public class ChatClient {
         try {
             userName = login;
             String jsonCreate = mapper.writeValueAsString(user);
-            System.out.println(jsonCreate);
             jsonUser = jsonCreate;
             return jsonCreate;
         } catch (JsonProcessingException e) {
@@ -62,15 +60,6 @@ public class ChatClient {
     }
 
     public void sendMessage(String message) {
-        switch (message) {
-            case (""): {
-                System.out.println("EmptyMess");
-                break;
-            }
-            case ("/startGame"): {
-
-            }
-        }
         if (message.trim().equals("")) {
             System.out.println("Empty mess");
         } else {
@@ -89,9 +78,7 @@ public class ChatClient {
                     String message = reader.readLine();
                     if (message.trim().length() < 1) {
                         message = "null";
-                        System.exit(0);
                     }
-                    System.out.println(message);
                     if (message.contains("hhhhh") && !message.contains(userName)) {
 //                        setOppoNentProgressBarValue((int) Integer.parseInt(message.trim().split(".")[0]));
                         String[] strings = message.split("@");
@@ -124,6 +111,14 @@ public class ChatClient {
 
     public String getUserName() {
         return userName;
+    }
+
+    public PrintWriter getWriter() {
+        return writer;
+    }
+
+    public BufferedReader getReader() {
+        return reader;
     }
 }
 

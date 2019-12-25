@@ -1,9 +1,9 @@
 package com.sem;
 
-import com.sem.frames.GameFrame;
+import com.sem.frames.Game;
 
 public class Main {
     public static void main(String[] args) {
-        new GameFrame();
+        Game.RegistrationFrame registrationFrame = new Game.RegistrationFrame();
     }
 }

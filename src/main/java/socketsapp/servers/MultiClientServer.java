@@ -2,7 +2,6 @@ package socketsapp.servers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sem.frames.GameFrame;
 import socketsapp.models.User;
 import socketsapp.repositories.CrudImpl;
 import socketsapp.repositories.DBService;
@@ -131,7 +130,7 @@ public class MultiClientServer {
                     for (ClientHandler client : clients) {
                         PrintWriter writer = new PrintWriter(
                                 client.clientSocket.getOutputStream(), true);
-//                        writer.println("[" + clientName + "]" + " " + line);
+                        writer.println("[" + clientName + "]" + " " + line);
                         writer.println(line);
                         writer.flush();
                     }

@@ -1,9 +1,10 @@
 package com.sem;
 
-import com.sem.frames.GameFrame;
+import com.sem.frames.Game;
+
 
 public class MainClass {
     public static void main(String[] args) {
-        new GameFrame();
+        new Game.RegistrationFrame();
     }
 }
